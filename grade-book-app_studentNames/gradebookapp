@@ -40,6 +40,8 @@ class GradeBook:
         student = next((s for s in self.student_list if s.email == email), None)
         if student:
             student.register_for_course(course_name, grade)
+        else:
+            print(f"Student with email {email} not found.")
 
     def calculate_GPA(self):
         for student in self.student_list:
@@ -58,6 +60,8 @@ class GradeBook:
             for course, grade in student.courses_registered.items():
                 print(f"{course}: {grade}")
             print(f"GPA: {student.GPA:.2f}")
+        else:
+            print(f"Student with email {email} not found.")
 
 
 def display_menu():
@@ -124,3 +128,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
